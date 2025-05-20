@@ -1,5 +1,27 @@
 # 2b IMPLEMENTATION OF SLIDING WINDOW PROTOCOL
+## NAME: JOANN ELIZABETH 
+
+## REGISTER NUMBER : 212224040139
 ## AIM
+Use of Network commands in Real Time environment
+
+## Software :
+Command Prompt And Network Protocol Analyzer
+
+## Procedure:
+To do this EXPERIMENT- follows these steps:
+In this EXPERIMENT- students have to understand basic networking commands e.g cpdump, netstat, ifconfig, nslookup ,traceroute and also Capture ping and traceroute PDUs using a network protocol analyzer
+All commands related to Network configuration which includes how to switch to privilege mode
+and normal mode and how to configure router interface and how to save this configuration to
+flash memory or permanent memory.
+This commands includes
+• Configuring the Router commands
+• General Commands to configure network
+• Privileged Mode commands of a router
+• Router Processes & Statistics
+• IP Commands
+• Other IP Commands e.g. show ip route etc.
+
 ## ALGORITHM:
 1. Start the program.
 2. Get the frame size from the user
@@ -7,7 +29,22 @@
 4. To send frames to server from the client side.
 5. If your frames reach the server it will send ACK signal to client
 6. Stop the Program
-## PROGRAM
 ## OUPUT
+
+## PING :
+![image](https://github.com/user-attachments/assets/764682b2-141f-4f92-8516-36f716bb4d8c)
+
+## TRACERT:
+![image](https://github.com/user-attachments/assets/f5bd5149-d0e9-4c3d-8254-241825e554a5)
+
+## IPCONFIG :
+![image](https://github.com/user-attachments/assets/9622baa4-c38a-427d-aa9c-5951b7cf97bd)
+
+## NETSTAT:
+![image](https://github.com/user-attachments/assets/637b686b-5199-4ee4-904c-c31f72e00caa)
+
+## FTP HOST:
+![image](https://github.com/user-attachments/assets/4f098fc3-ca28-4d1c-8e28-975c7337743a)
+
 ## RESULT
 Thus, python program to perform stop and wait protocol was successfully executed
