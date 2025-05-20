@@ -8,20 +8,6 @@ Use of Network commands in Real Time environment
 ## Software :
 Command Prompt And Network Protocol Analyzer
 
-## Procedure:
-To do this EXPERIMENT- follows these steps:
-In this EXPERIMENT- students have to understand basic networking commands e.g cpdump, netstat, ifconfig, nslookup ,traceroute and also Capture ping and traceroute PDUs using a network protocol analyzer
-All commands related to Network configuration which includes how to switch to privilege mode
-and normal mode and how to configure router interface and how to save this configuration to
-flash memory or permanent memory.
-This commands includes
-• Configuring the Router commands
-• General Commands to configure network
-• Privileged Mode commands of a router
-• Router Processes & Statistics
-• IP Commands
-• Other IP Commands e.g. show ip route etc.
-
 ## ALGORITHM:
 1. Start the program.
 2. Get the frame size from the user
@@ -29,22 +15,62 @@ This commands includes
 4. To send frames to server from the client side.
 5. If your frames reach the server it will send ACK signal to client
 6. Stop the Program
+
+## PROGRAM 
+```
+## SERVER SIDE:
+import socket
+s = socket.socket()
+s.bind(('localhost', 9999))
+s.listen(1)
+print("Server listening...")
+conn, addr = s.accept()
+print(f"Connected to {addr}")
+
+while True:
+    frames = conn.recv(1024).decode()
+    if not frames:
+        break
+
+    print(f"Received frames: {frames}")
+    ack_message = f"ACK for frames: {frames}"
+    conn.send(ack_message.encode())
+
+conn.close()  
+s.close()
+## CLIENT:
+
+import socket
+c = socket.socket()
+c.connect(('localhost', 9999))
+
+size = int(input("Enter number of frames to send: "))
+l = list(range(size))  
+print("Total frames to send:", len(l))
+s = int(input("Enter Window Size: "))
+
+i = 0
+while True:
+    while i < len(l):
+        st = i + s
+        frames_to_send = l[i:st]  
+        print(f"Sending frames: {frames_to_send}")
+        c.send(str(frames_to_send).encode())  
+
+        ack = c.recv(1024).decode()  
+        if ack:
+            print(f"Acknowledgment received: {ack}")
+            i += s  
+
+    break
+c.close()
+```
 ## OUPUT
+## SERVER SIDE:
+![image](https://github.com/user-attachments/assets/ce08eb43-4be1-40ba-bc57-d02adb9bf76f)
 
-## PING :
-![image](https://github.com/user-attachments/assets/764682b2-141f-4f92-8516-36f716bb4d8c)
-
-## TRACERT:
-![image](https://github.com/user-attachments/assets/f5bd5149-d0e9-4c3d-8254-241825e554a5)
-
-## IPCONFIG :
-![image](https://github.com/user-attachments/assets/9622baa4-c38a-427d-aa9c-5951b7cf97bd)
-
-## NETSTAT:
-![image](https://github.com/user-attachments/assets/637b686b-5199-4ee4-904c-c31f72e00caa)
-
-## FTP HOST:
-![image](https://github.com/user-attachments/assets/4f098fc3-ca28-4d1c-8e28-975c7337743a)
+## CLIENT SIDE:
+![image](https://github.com/user-attachments/assets/0f18f162-1c72-45fb-bd89-570ae1d7ac43)
 
 ## RESULT
 Thus, python program to perform stop and wait protocol was successfully executed
